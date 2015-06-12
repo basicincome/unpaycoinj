@@ -21,8 +21,8 @@ import com.google.bitcoin.script.ScriptBuilder;
 import com.google.common.annotations.VisibleForTesting;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.hashengineering.crypto.X11;
-import com.sun.xml.internal.ws.api.config.management.policy.ManagedServiceAssertion;
+//import com.hashengineering.crypto.X11;
+//import com.sun.xml.internal.ws.api.config.management.policy.ManagedServiceAssertion;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
