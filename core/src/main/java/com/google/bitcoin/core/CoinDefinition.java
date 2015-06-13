@@ -12,9 +12,9 @@ import java.util.Map;
 public class CoinDefinition {
 
 
-    public static final String coinName = "Dash";
-    public static final String coinTicker = "DASH";
-    public static final String coinURIScheme = "dash";
+    public static final String coinName = "Unpay";
+    public static final String coinTicker = "UNP";
+    public static final String coinURIScheme = "unpay";
     public static final String cryptsyMarketId = "155";
     public static final String cryptsyMarketCurrency = "BTC";
     public static final String PATTERN_PRIVATE_KEY_START = "[7X]";
@@ -49,14 +49,14 @@ public class CoinDefinition {
     public static final int INTERVAL = TARGET_TIMESPAN / TARGET_SPACING;  //36 blocks
 
     public static final int getInterval(int height, boolean testNet) {
-            return INTERVAL;      //108
+        return INTERVAL;      //108
     }
     public static final int getIntervalCheckpoints() {
-            return INTERVAL;
+        return INTERVAL;
 
     }
     public static final int getTargetTimespan(int height, boolean testNet) {
-            return TARGET_TIMESPAN;    //72 min
+        return TARGET_TIMESPAN;    //72 min
     }
 
     public static int spendableCoinbaseDepth = 100; //main.h: static const int COINBASE_MATURITY
