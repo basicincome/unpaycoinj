@@ -3,8 +3,8 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.google</groupId>
-  <artifactId>darkcoinj-parent</artifactId>
-  <version>0.12-SNAPSHOT</version>
+  <artifactId>unpaycoinj-parent</artifactId>
+  <version>0.10-SNAPSHOT</version>
   <packaging>pom</packaging>
 
   <modules>
@@ -25,9 +25,9 @@
         <url>http://code.google.com/p/bitcoinj/source/browse</url>
     </scm>
 
-  <name>darkcoinj Parent</name>
-  <description>Provides the common configuration for the darkcoinJ modules</description>
-  <url>https://github.com/HashEngineering/darkcoinj</url>
+  <name>unpaycoinj Parent</name>
+  <description>Provides the common configuration for the unpaycoinj modules</description>
+  <url>https://github.com/world-bank/unpaycoinj</url>
 
   <licenses>
     <license>
@@ -40,19 +40,19 @@
 
   <issueManagement>
     <system>Google Code</system>
-    <url>http://code.google.com/p/darkcoinj/issues/list</url>
+    <url>http://code.google.com/p/unpaycoinj/issues/list</url>
   </issueManagement>
 
   <mailingLists>
     <mailingList>
-      <name>darkcoinj Google Group</name>
-      <post>https://groups.google.com/forum/#!forum/darkcoinj</post>
+      <name>unpaycoinj Google Group</name>
+      <post>https://groups.google.com/forum/#!forum/unpaycoinj</post>
     </mailingList>
   </mailingLists>
 
   <repositories>
     <repository>
-        <id>darkcoinj-distribution</id>
+        <id>unpaycoinj-distribution</id>
         <url>https://distribution.bitcoinj.googlecode.com/git/releases</url>
     </repository>
   </repositories>
@@ -82,7 +82,7 @@
         <artifactId>slf4j-api</artifactId>
         <version>1.7.6</version>
       </dependency>
-      <!-- darkcoinj consumers are expected to provide their own SLF4J adapters
+      <!-- unpaycoinj consumers are expected to provide their own SLF4J adapters
     such as logback, slf4j-log4j12, slf4j-jcl and so on
     see http://www.slf4j.org/faq.html -->
       <dependency>
