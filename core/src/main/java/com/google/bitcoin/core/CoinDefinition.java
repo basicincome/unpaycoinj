@@ -60,7 +60,7 @@ public class CoinDefinition {
     }
 
     public static int spendableCoinbaseDepth = 100; //main.h: static const int COINBASE_MATURITY
-    public static final BigInteger MAX_MONEY = BigInteger.valueOf(22000000).multiply(Utils.COIN);                 //main.h:  MAX_MONEY
+    public static final BigInteger MAX_MONEY = BigInteger.valueOf(184467440737L).multiply(Utils.COIN);                 //main.h:  MAX_MONEY
     //public static final String MAX_MONEY_STRING = "200000000";     //main.h:  MAX_MONEY
 
     public static final BigInteger DEFAULT_MIN_TX_FEE = BigInteger.valueOf(100000);   // MIN_TX_FEE
@@ -76,8 +76,8 @@ public class CoinDefinition {
 
     public static final boolean supportsBloomFiltering = true; //Requires PROTOCOL_VERSION 70000 in the client
 
-    public static final int Port    = 9999;       //protocol.h GetDefaultPort(testnet=false)
-    public static final int TestPort = 19999;     //protocol.h GetDefaultPort(testnet=true)
+    public static final int Port    = 3338;       //chainparams.cpp nDefaultPort(testnet=false)
+    public static final int TestPort = 13338;     //chainparams.cpp nDefaultPort(testnet=true)
 
     //
     //  Production
@@ -102,32 +102,33 @@ public class CoinDefinition {
 
     //net.cpp strDNSSeed
     static public String[] dnsSeeds = new String[] {
-            "masternode.io",
-            "dnsseed.darkcoin.qa",
-            "23.23.186.131", //Evan's seed node
-            "162.252.83.46",  //drkpool.com
-            "107.155.71.72",
-            "50.16.206.102",
-            "50.19.116.123",
-            "98.165.130.67",
-            "23.23.186.131",
-            "50.16.206.102",
-            "50.19.116.123",
-            "50.19.116.123",
-            "23.21.204.34",
-            "188.142.39.105",
-            "50.16.206.102", //InternetApe's seed node
-            "23.23.186.131",
-            "50.19.116.123",
-            "54.248.227.151",
-            "42.121.58.91",
-            "50.81.192.39",
-            "54.193.124.32",
-            "62.141.39.175",
-            "5.254.96.3",
-            "175.115.201.44",
-            "208.53.191.2",
-            "162.243.33.16",
+            "dnsseed.unpaybank.info",
+//            "masternode.io",
+//            "dnsseed.darkcoin.qa",
+//            "23.23.186.131", //Evan's seed node
+//            "162.252.83.46",  //drkpool.com
+//            "107.155.71.72",
+//            "50.16.206.102",
+//            "50.19.116.123",
+//            "98.165.130.67",
+//            "23.23.186.131",
+//            "50.16.206.102",
+//            "50.19.116.123",
+//            "50.19.116.123",
+//            "23.21.204.34",
+//            "188.142.39.105",
+//            "50.16.206.102", //InternetApe's seed node
+//            "23.23.186.131",
+//            "50.19.116.123",
+//            "54.248.227.151",
+//            "42.121.58.91",
+//            "50.81.192.39",
+//            "54.193.124.32",
+//            "62.141.39.175",
+//            "5.254.96.3",
+//            "175.115.201.44",
+//            "208.53.191.2",
+//            "162.243.33.16",
     };
 
     public static int minBroadcastConnections = 0;   //0 for default; we need more peers.
@@ -163,38 +164,39 @@ public class CoinDefinition {
     public static BigInteger proofOfWorkLimit = Utils.decodeCompactBits(0x1e0fffffL);  //main.cpp bnProofOfWorkLimit (~uint256(0) >> 20); // digitalcoin: starting difficulty is 1 / 2^12
 
     static public String[] testnetDnsSeeds = new String[] {
-            "testnet-seed.darkcoin.io",
-            "testnet-seed.darkcoin.qa",
-            "23.23.186.131"
+            "testnet-dnsseed.unpaybank.info",
+//            "testnet-seed.darkcoin.io",
+//            "testnet-seed.darkcoin.qa",
+//            "23.23.186.131"
     };
     //from main.h: CAlert::CheckSignature
     public static final String SATOSHI_KEY = "048240a8748a80a286b270ba126705ced4f2ce5a7847b3610ea3c06513150dade2a8512ed5ea86320824683fc0818f0ac019214973e677acd1244f6d0571fc5103";
     public static final String TESTNET_SATOSHI_KEY = "04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412";
 
     /** The string returned by getId() for the main, production network where people trade things. */
-    public static final String ID_MAINNET = "org.darkcoin.production";
+    public static final String ID_MAINNET = "org.unpaybank.production";
     /** The string returned by getId() for the testnet. */
-    public static final String ID_TESTNET = "org.darkcoin.test";
+    public static final String ID_TESTNET = "org.unpaybank.test";
     /** Unit test network. */
-    public static final String ID_UNITTESTNET = "com.google.darkcoin.unittest";
+    public static final String ID_UNITTESTNET = "com.google.unpaybank.unittest";
 
     //checkpoints.cpp Checkpoints::mapCheckpoints
     public static void initCheckpoints(Map<Integer, Sha256Hash> checkpoints)
     {
 
-        checkpoints.put(  1500, new Sha256Hash("000000aaf0300f59f49bc3e970bad15c11f961fe2347accffff19d96ec9778e3"));
-        checkpoints.put(  4991, new Sha256Hash("000000003b01809551952460744d5dbb8fcbd6cbae3c220267bf7fa43f837367"));
-        checkpoints.put(  9918, new Sha256Hash("00000000213e229f332c0ffbe34defdaa9e74de87f2d8d1f01af8d121c3c170b"));
-        checkpoints.put( 16912, new Sha256Hash("00000000075c0d10371d55a60634da70f197548dbbfa4123e12abfcbc5738af9"));
-        checkpoints.put( 23912, new Sha256Hash("0000000000335eac6703f3b1732ec8b2f89c3ba3a7889e5767b090556bb9a276"));
-        checkpoints.put( 35457, new Sha256Hash("0000000000b0ae211be59b048df14820475ad0dd53b9ff83b010f71a77342d9f"));
-        checkpoints.put( 45479, new Sha256Hash("000000000063d411655d590590e16960f15ceea4257122ac430c6fbe39fbf02d"));
-        checkpoints.put( 55895, new Sha256Hash("0000000000ae4c53a43639a4ca027282f69da9c67ba951768a20415b6439a2d7"));
-        checkpoints.put( 68899, new Sha256Hash("0000000000194ab4d3d9eeb1f2f792f21bb39ff767cb547fe977640f969d77b7"));
-        checkpoints.put( 74619, new Sha256Hash("000000000011d28f38f05d01650a502cc3f4d0e793fbc26e2a2ca71f07dc3842"));
-        checkpoints.put( 75095, new Sha256Hash("0000000000193d12f6ad352a9996ee58ef8bdc4946818a5fec5ce99c11b87f0d"));
-        checkpoints.put( 88805, new Sha256Hash("00000000001392f1652e9bf45cd8bc79dc60fe935277cd11538565b4a94fa85f"));
-        checkpoints.put( 90544, new Sha256Hash("000000000001b284b79a44a95215d7e6cf9e22cd4f9b562f2cc796e941e0e411"));
+//        checkpoints.put(  1500, new Sha256Hash("000000aaf0300f59f49bc3e970bad15c11f961fe2347accffff19d96ec9778e3"));
+//        checkpoints.put(  4991, new Sha256Hash("000000003b01809551952460744d5dbb8fcbd6cbae3c220267bf7fa43f837367"));
+//        checkpoints.put(  9918, new Sha256Hash("00000000213e229f332c0ffbe34defdaa9e74de87f2d8d1f01af8d121c3c170b"));
+//        checkpoints.put( 16912, new Sha256Hash("00000000075c0d10371d55a60634da70f197548dbbfa4123e12abfcbc5738af9"));
+//        checkpoints.put( 23912, new Sha256Hash("0000000000335eac6703f3b1732ec8b2f89c3ba3a7889e5767b090556bb9a276"));
+//        checkpoints.put( 35457, new Sha256Hash("0000000000b0ae211be59b048df14820475ad0dd53b9ff83b010f71a77342d9f"));
+//        checkpoints.put( 45479, new Sha256Hash("000000000063d411655d590590e16960f15ceea4257122ac430c6fbe39fbf02d"));
+//        checkpoints.put( 55895, new Sha256Hash("0000000000ae4c53a43639a4ca027282f69da9c67ba951768a20415b6439a2d7"));
+//        checkpoints.put( 68899, new Sha256Hash("0000000000194ab4d3d9eeb1f2f792f21bb39ff767cb547fe977640f969d77b7"));
+//        checkpoints.put( 74619, new Sha256Hash("000000000011d28f38f05d01650a502cc3f4d0e793fbc26e2a2ca71f07dc3842"));
+//        checkpoints.put( 75095, new Sha256Hash("0000000000193d12f6ad352a9996ee58ef8bdc4946818a5fec5ce99c11b87f0d"));
+//        checkpoints.put( 88805, new Sha256Hash("00000000001392f1652e9bf45cd8bc79dc60fe935277cd11538565b4a94fa85f"));
+//        checkpoints.put( 90544, new Sha256Hash("000000000001b284b79a44a95215d7e6cf9e22cd4f9b562f2cc796e941e0e411"));
     }
 
     //Unit Test Information
