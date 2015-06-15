@@ -91,14 +91,14 @@ public class CoinDefinition {
 
     //Genesis Block Information from main.cpp: LoadBlockIndex
     static public long genesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
-    static public long genesisBlockTime = 1390095618L;                       //main.cpp: LoadBlockIndex
-    static public long genesisBlockNonce = (28917698);                         //main.cpp: LoadBlockIndex
-    static public String genesisHash = "00000ffd590b1485b3caadc19b22e6379c733355108f107a430458cdf3407ab6"; //main.cpp: hashGenesisBlock
-    static public String genesisMerkleRoot = "e0028eb9648db56b1ac77cf090b99048a8007e2bb64b68f092c03c7f56a662c7";
+    static public long genesisBlockTime = 1433994215L;                       //main.cpp: LoadBlockIndex
+    static public long genesisBlockNonce = (6337833);                         //main.cpp: LoadBlockIndex
+    static public String genesisHash = "000003e14b723be4346c6ed7c61d46c7e6d6d83d4b1c3db38b2a38248d5a134c"; //main.cpp: hashGenesisBlock
+    static public String genesisMerkleRoot = "b6df1d332acec3f426902d1ab6f981f9d69eeb07e5a78b8592f9ab9f3a1bbee0";
     static public int genesisBlockValue = 50;                                                              //main.cpp: LoadBlockIndex
     //taken from the raw data of the block explorer
-    static public String genesisTxInBytes = "04ffff001d01044c5957697265642030392f4a616e2f3230313420546865204772616e64204578706572696d656e7420476f6573204c6976653a204f76657273746f636b2e636f6d204973204e6f7720416363657074696e6720426974636f696e73";   //"limecoin se convertira en una de las monedas mas segura del mercado, checa nuestros avances"
-    static public String genesisTxOutBytes = "040184710fa689ad5023690c80f3a49c8f13f8d45b8c857fbcbc8bc4a8e4d3eb4b10f4d4604fa08dce601aaf0f470216fe1b51850b4acf21b179c45070ac7b03a9";
+    static public String genesisTxInBytes = "04ffff001d01044c9953696e6365204d617920323031352c207468652052657075626c6963206f66204b6f72656120686173206265656e20696e7665737469676174696e6720616e206f7574627265616b206f66204d4552532e20497420697320746865206c617267657374206b6e6f776e206f7574627265616b206f66204d455253206f75747369646520746865204172616269616e2050656e696e73756c612e";   //"Since May 2015, the Republic of Korea has been investigating an outbreak of MERS. It is the largest known outbreak of MERS outside the Arabian Peninsula."
+    static public String genesisTxOutBytes = "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f";
 
     //net.cpp strDNSSeed
     static public String[] dnsSeeds = new String[] {
@@ -140,10 +140,10 @@ public class CoinDefinition {
     public static final int testnetAddressHeader = 139;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS_TEST
     public static final int testnetp2shHeader = 19;             //base58.h CBitcoinAddress::SCRIPT_ADDRESS_TEST
     public static final long testnetPacketMagic = 0xcee2caff;      //
-    public static final String testnetGenesisHash = "00000bafbc94add76cb75e2ec92894837288a481e5c005f6563d91623bf8bc2c";
+    public static final String testnetGenesisHash = "00000890f1794585e882cbb9ec24760f2293fba338eb919232ff9c4f740267f4";
     static public long testnetGenesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
-    static public long testnetGenesisBlockTime = 1390666206L;                       //main.cpp: LoadBlockIndex
-    static public long testnetGenesisBlockNonce = (3861367235L);                         //main.cpp: LoadBlockIndex
+    static public long testnetGenesisBlockTime = 1433994530L;                       //main.cpp: LoadBlockIndex
+    static public long testnetGenesisBlockNonce = (72436);                         //main.cpp: LoadBlockIndex
 
 
 
