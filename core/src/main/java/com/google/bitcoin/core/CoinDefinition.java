@@ -74,7 +74,7 @@ public class CoinDefinition {
     public static final int MAX_BLOCK_SIZE = 1 * 1000 * 1000;
 
 
-    public static final boolean supportsBloomFiltering = true; //Requires PROTOCOL_VERSION 70000 in the client
+    public static final boolean supportsBloomFiltering = true; //Requires PROTOCOL_VERSION 7006 in the client
 
     public static final int Port    = 3338;       //chainparams.cpp nDefaultPort(testnet=false)
     public static final int TestPort = 13338;     //chainparams.cpp nDefaultPort(testnet=true)
@@ -97,7 +97,7 @@ public class CoinDefinition {
     static public String genesisMerkleRoot = "b6df1d332acec3f426902d1ab6f981f9d69eeb07e5a78b8592f9ab9f3a1bbee0";
     static public int genesisBlockValue = 50;                                                              //main.cpp: LoadBlockIndex
     //taken from the raw data of the block explorer
-    static public String genesisTxInBytes = "04ffff001d0104483233204a756e6520323031352c2053616d73756e6720686569722061706f6c6f67697a6573206f766572204d455253206f7574627265616b2061742069747320686f73706974616c";   //"Since May 2015, the Republic of Korea has been investigating an outbreak of MERS. It is the largest known outbreak of MERS outside the Arabian Peninsula."
+    static public String genesisTxInBytes = "04ffff001d0104483233204a756e6520323031352c2053616d73756e6720686569722061706f6c6f67697a6573206f766572204d455253206f7574627265616b2061742069747320686f73706974616c";
     static public String genesisTxOutBytes = "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f";
 
     //net.cpp strDNSSeed

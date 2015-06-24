@@ -295,6 +295,7 @@ public class Wallet implements Serializable, BlockChainListener, PeerFilterProvi
         }
     }
 
+
     /** Saves the wallet first to the given temp file, then renames to the dest file. */
     public void saveToFile(File temp, File destFile) throws IOException {
         FileOutputStream stream = null;
@@ -2273,6 +2274,37 @@ public class Wallet implements Serializable, BlockChainListener, PeerFilterProvi
             lock.unlock();
         }
     }
+    /**
+     * Returns the balance of this wallet as calculated by the provided address.
+     */
+    public BigInteger getBalance(Address address){
+        lock.lock();
+        try{
+            if(null == address) return BigInteger.ZERO;
+
+            // LinkedList<TransactionOutput> candidates = Lists.newLinkedList();
+            BigInteger total = BigInteger.ZERO;
+            for (Transaction tx : Iterables.concat(unspent.values(), pending.values())) {
+                // Do not try and spend coinbases that were mined too recently, the protocol forbids it.
+                if (!tx.isMature()) continue;
+                for (TransactionOutput output : tx.getOutputs()) {
+                    if (!output.isAvailableForSpending()) continue;
+                    if (!output.isMine(this)) continue;
+
+                    final Address toAddr = output.getScriptPubKey().getToAddress(params);
+
+                    if (toAddr.equals( address ))
+                        total = total.add(output.getValue());
+                }
+            }
+            log.info("getBalance = {}", total.toString());
+            return total;
+
+
+        } finally {
+            lock.unlock();
+        }
+    }
 
     /**
      * Returns the balance that would be considered spendable by the given coin selector. Just asks it to select
@@ -2289,6 +2321,10 @@ public class Wallet implements Serializable, BlockChainListener, PeerFilterProvi
             lock.unlock();
         }
     }
+
+
+
+
 
     /** Returns the available balance, including any unspent balance at watched addresses */
     public BigInteger getWatchedBalance() {
