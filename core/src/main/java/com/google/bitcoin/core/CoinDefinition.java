@@ -12,8 +12,8 @@ import java.util.Map;
 public class CoinDefinition {
 
 
-    public static final String coinName = "UNPay";
-    public static final String coinTicker = "UNP";
+    public static final String coinName = "Mobicoin";
+    public static final String coinTicker = "MCP";
     public static final String coinURIScheme = "unpay";
     public static final String cryptsyMarketId = "155";
     public static final String cryptsyMarketCurrency = "BTC";
