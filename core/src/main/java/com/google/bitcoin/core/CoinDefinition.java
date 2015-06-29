@@ -60,7 +60,7 @@ public class CoinDefinition {
     }
 
     public static int spendableCoinbaseDepth = 10; //main.h: static const int COINBASE_MATURITY
-    public static final BigInteger MAX_MONEY = BigInteger.valueOf(184467440737L).multiply(Utils.COIN);                 //main.h:  MAX_MONEY
+    public static final BigInteger MAX_MONEY = BigInteger.valueOf(90000000000L).multiply(Utils.COIN);                 //main.h:  MAX_MONEY
     //public static final String MAX_MONEY_STRING = "200000000";     //main.h:  MAX_MONEY
 
     public static final BigInteger DEFAULT_MIN_TX_FEE = BigInteger.valueOf(100000);   // MIN_TX_FEE
@@ -76,8 +76,8 @@ public class CoinDefinition {
 
     public static final boolean supportsBloomFiltering = true; //Requires PROTOCOL_VERSION 7006 in the client
 
-    public static final int Port    = 3338;       //chainparams.cpp nDefaultPort(testnet=false)
-    public static final int TestPort = 13338;     //chainparams.cpp nDefaultPort(testnet=true)
+    public static final int Port    = 4448;       //chainparams.cpp nDefaultPort(testnet=false)
+    public static final int TestPort = 14448;     //chainparams.cpp nDefaultPort(testnet=true)
 
     //
     //  Production
@@ -90,19 +90,34 @@ public class CoinDefinition {
     public static final long PacketMagic = 0xbf0c6bbd;
 
     //Genesis Block Information from main.cpp: LoadBlockIndex
+    /*
+    $ python genesis.py -a X11 -z "29 June 2015, Greece shut down its banking system"
+    04ffff001d0104313239204a756e6520323031352c20477265656365207368757420646f776e206974732062616e6b696e672073797374656d
+    algorithm: X11
+    merkle hash: e541e5c7ded4095808d96f122a3bb7ee79caf6d6d4984538cb879ee036faf91a
+    pszTimestamp: 29 June 2015, Greece shut down its banking system
+    pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
+    time: 1435570440
+    bits: 0x1e0ffff0
+    Searching for genesis hash..
+    13819.0 hash/s, estimate: 0.0 hgenesis hash found!
+    nonce: 454528
+    genesis hash: 000005112eeaf12c018c055a02050d931a137d95b0ab12c81c42c18f3ed29e1e
+    */
+
     static public long genesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
-    static public long genesisBlockTime = 1435041629L;                       //main.cpp: LoadBlockIndex
-    static public long genesisBlockNonce = (64680);                         //main.cpp: LoadBlockIndex
-    static public String genesisHash = "0000044bab71fe48bcfcc2dea86225b1c6474e296f9365a0e2052a65b8c12663"; //main.cpp: hashGenesisBlock
-    static public String genesisMerkleRoot = "b6df1d332acec3f426902d1ab6f981f9d69eeb07e5a78b8592f9ab9f3a1bbee0";
+    static public long genesisBlockTime = 1435570440L;                       //main.cpp: LoadBlockIndex
+    static public long genesisBlockNonce = (454528);                         //main.cpp: LoadBlockIndex
+    static public String genesisHash = "000005112eeaf12c018c055a02050d931a137d95b0ab12c81c42c18f3ed29e1e"; //main.cpp: hashGenesisBlock
+    static public String genesisMerkleRoot = "e541e5c7ded4095808d96f122a3bb7ee79caf6d6d4984538cb879ee036faf91a";
     static public int genesisBlockValue = 50;                                                              //main.cpp: LoadBlockIndex
     //taken from the raw data of the block explorer
-    static public String genesisTxInBytes = "04ffff001d0104483233204a756e6520323031352c2053616d73756e6720686569722061706f6c6f67697a6573206f766572204d455253206f7574627265616b2061742069747320686f73706974616c";
+    static public String genesisTxInBytes = "04ffff001d0104313239204a756e6520323031352c20477265656365207368757420646f776e206974732062616e6b696e672073797374656d";
     static public String genesisTxOutBytes = "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f";
 
     //net.cpp strDNSSeed
     static public String[] dnsSeeds = new String[] {
-            "dnsseed.unpaybank.info",
+            "mobiseed.unpaybank.info",
 //            "masternode.io",
 //            "dnsseed.darkcoin.qa",
 //            "23.23.186.131", //Evan's seed node
@@ -140,10 +155,10 @@ public class CoinDefinition {
     public static final int testnetAddressHeader = 139;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS_TEST
     public static final int testnetp2shHeader = 19;             //base58.h CBitcoinAddress::SCRIPT_ADDRESS_TEST
     public static final long testnetPacketMagic = 0xcee2caff;      //
-    public static final String testnetGenesisHash = "000004ea8b1130ffbd9296a072f24058e9b7bbb6216395bc4253fc8b6e236e03";
+    public static final String testnetGenesisHash = "00000080ca06289e92c2a37d96b6c19f5135b6dfe7aaebc56938fdfe6f7c3716";
     static public long testnetGenesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
-    static public long testnetGenesisBlockTime = 1435041593L;                       //main.cpp: LoadBlockIndex
-    static public long testnetGenesisBlockNonce = (1530143);                         //main.cpp: LoadBlockIndex
+    static public long testnetGenesisBlockTime = 1435574202L;                       //main.cpp: LoadBlockIndex
+    static public long testnetGenesisBlockNonce = (187241);                         //main.cpp: LoadBlockIndex
 
 
 
@@ -164,7 +179,7 @@ public class CoinDefinition {
     public static BigInteger proofOfWorkLimit = Utils.decodeCompactBits(0x1e0fffffL);  //main.cpp bnProofOfWorkLimit (~uint256(0) >> 20); // digitalcoin: starting difficulty is 1 / 2^12
 
     static public String[] testnetDnsSeeds = new String[] {
-            "testnet-dnsseed.unpaybank.info",
+            "test-mobiseed.unpaybank.info",
 //            "testnet-seed.darkcoin.io",
 //            "testnet-seed.darkcoin.qa",
 //            "23.23.186.131"
@@ -174,11 +189,11 @@ public class CoinDefinition {
     public static final String TESTNET_SATOSHI_KEY = "04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412";
 
     /** The string returned by getId() for the main, production network where people trade things. */
-    public static final String ID_MAINNET = "org.unpaybank.production";
+    public static final String ID_MAINNET = "org.mobicoin.production";
     /** The string returned by getId() for the testnet. */
-    public static final String ID_TESTNET = "org.unpaybank.test";
+    public static final String ID_TESTNET = "org.mobicoin.test";
     /** Unit test network. */
-    public static final String ID_UNITTESTNET = "com.google.unpaybank.unittest";
+    public static final String ID_UNITTESTNET = "com.google.mobicoin.unittest";
 
     //checkpoints.cpp Checkpoints::mapCheckpoints
     public static void initCheckpoints(Map<Integer, Sha256Hash> checkpoints)
