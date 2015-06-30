@@ -13,8 +13,8 @@ public class CoinDefinition {
 
 
     public static final String coinName = "Mobicoin";
-    public static final String coinTicker = "MCP";
-    public static final String coinURIScheme = "unpay";
+    public static final String coinTicker = "mMCP";
+    public static final String coinURIScheme = "mobicoin";
     public static final String cryptsyMarketId = "155";
     public static final String cryptsyMarketCurrency = "BTC";
     public static final String PATTERN_PRIVATE_KEY_START = "[7X]";
@@ -82,7 +82,8 @@ public class CoinDefinition {
     //
     //  Production
     //
-    public static final int AddressHeader = 76;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS
+    //public static final int AddressHeader = 76;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS X
+    public static final int AddressHeader = 50;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS X-> M
     public static final int p2shHeader = 16;             //base58.h CBitcoinAddress::SCRIPT_ADDRESS
     public static final boolean allowBitcoinPrivateKey = false; //for backward compatibility with previous version of digitalcoin
     public static final int dumpedPrivateKeyHeader = 128;   //common to all coins
