@@ -28,7 +28,7 @@
     <artifactId>unpaycoinj</artifactId>
 
     <name>unpaycoinj</name>
-    <description>A Java mobicoin library</description>
+    <description>A Java unpay library</description>
 
     <packaging>jar</packaging>
 

@@ -12,9 +12,9 @@ import java.util.Map;
 public class CoinDefinition {
 
 
-    public static final String coinName = "Mobicoin";
-    public static final String coinTicker = "mMCP";
-    public static final String coinURIScheme = "mobicoin";
+    public static final String coinName = "UNPay";
+    public static final String coinTicker = "UNP";
+    public static final String coinURIScheme = "unpay";
     public static final String cryptsyMarketId = "155";
     public static final String cryptsyMarketCurrency = "BTC";
     public static final String PATTERN_PRIVATE_KEY_START = "[7X]";
@@ -76,14 +76,14 @@ public class CoinDefinition {
 
     public static final boolean supportsBloomFiltering = true; //Requires PROTOCOL_VERSION 7006 in the client
 
-    public static final int Port    = 4448;       //chainparams.cpp nDefaultPort(testnet=false)
-    public static final int TestPort = 14448;     //chainparams.cpp nDefaultPort(testnet=true)
+    public static final int Port    = 3338;       //chainparams.cpp nDefaultPort(testnet=false)
+    public static final int TestPort = 13339;     //chainparams.cpp nDefaultPort(testnet=true)
 
     //
     //  Production
     //
     //public static final int AddressHeader = 76;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS X
-    public static final int AddressHeader = 50;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS X-> M
+    public static final int AddressHeader = 68;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS X-> U
     public static final int p2shHeader = 16;             //base58.h CBitcoinAddress::SCRIPT_ADDRESS
     public static final boolean allowBitcoinPrivateKey = false; //for backward compatibility with previous version of digitalcoin
     public static final int dumpedPrivateKeyHeader = 128;   //common to all coins
@@ -92,33 +92,33 @@ public class CoinDefinition {
 
     //Genesis Block Information from main.cpp: LoadBlockIndex
     /*
-    $ python genesis.py -a X11 -z "29 June 2015, Greece shut down its banking system"
-    04ffff001d0104313239204a756e6520323031352c20477265656365207368757420646f776e206974732062616e6b696e672073797374656d
+    python genesis.py -a X11 -z "BBC 2/Jul/2015 Greece crisis: Eurozone rules out talks until after referendum"
+    04ffff001d01044c4d42424320322f4a756c2f3230313520477265656365206372697369733a204575726f7a6f6e652072756c6573206f75742074616c6b7320756e74696c206166746572207265666572656e64756d
     algorithm: X11
-    merkle hash: e541e5c7ded4095808d96f122a3bb7ee79caf6d6d4984538cb879ee036faf91a
-    pszTimestamp: 29 June 2015, Greece shut down its banking system
+    merkle hash: 3dcdc3d176e749ffdd3d989306f5cfea9be9ff4efca271c701ed14bedd4ca008
+    pszTimestamp: BBC 2/Jul/2015 Greece crisis: Eurozone rules out talks until after referendum
     pubkey: 04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f
-    time: 1435570440
+    time: 1435816568
     bits: 0x1e0ffff0
     Searching for genesis hash..
-    13819.0 hash/s, estimate: 0.0 hgenesis hash found!
-    nonce: 454528
-    genesis hash: 000005112eeaf12c018c055a02050d931a137d95b0ab12c81c42c18f3ed29e1e
+    16002.0 hash/s, estimate: 0.0 hgenesis hash found!
+    nonce: 188130
+    genesis hash: 00000f0d228b0dc3b414e47a3d59a2e8440a00268221a95f0b200a2a02fbd47a
     */
 
     static public long genesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
-    static public long genesisBlockTime = 1435570440L;                       //main.cpp: LoadBlockIndex
-    static public long genesisBlockNonce = (454528);                         //main.cpp: LoadBlockIndex
-    static public String genesisHash = "000005112eeaf12c018c055a02050d931a137d95b0ab12c81c42c18f3ed29e1e"; //main.cpp: hashGenesisBlock
-    static public String genesisMerkleRoot = "e541e5c7ded4095808d96f122a3bb7ee79caf6d6d4984538cb879ee036faf91a";
+    static public long genesisBlockTime = 1435816568L;                       //main.cpp: LoadBlockIndex
+    static public long genesisBlockNonce = (188130);                         //main.cpp: LoadBlockIndex
+    static public String genesisHash = "00000f0d228b0dc3b414e47a3d59a2e8440a00268221a95f0b200a2a02fbd47a"; //main.cpp: hashGenesisBlock
+    static public String genesisMerkleRoot = "3dcdc3d176e749ffdd3d989306f5cfea9be9ff4efca271c701ed14bedd4ca008";
     static public int genesisBlockValue = 50;                                                              //main.cpp: LoadBlockIndex
     //taken from the raw data of the block explorer
-    static public String genesisTxInBytes = "04ffff001d0104313239204a756e6520323031352c20477265656365207368757420646f776e206974732062616e6b696e672073797374656d";
+    static public String genesisTxInBytes = "04ffff001d01044c4d42424320322f4a756c2f3230313520477265656365206372697369733a204575726f7a6f6e652072756c6573206f75742074616c6b7320756e74696c206166746572207265666572656e64756d";
     static public String genesisTxOutBytes = "04678afdb0fe5548271967f1a67130b7105cd6a828e03909a67962e0ea1f61deb649f6bc3f4cef38c4f35504e51ec112de5c384df7ba0b8d578a4c702b6bf11d5f";
 
     //net.cpp strDNSSeed
     static public String[] dnsSeeds = new String[] {
-            "mobiseed.unpaybank.info",
+            "dnsseed.unpaybank.info",
 //            "masternode.io",
 //            "dnsseed.darkcoin.qa",
 //            "23.23.186.131", //Evan's seed node
@@ -156,10 +156,10 @@ public class CoinDefinition {
     public static final int testnetAddressHeader = 139;             //base58.h CBitcoinAddress::PUBKEY_ADDRESS_TEST
     public static final int testnetp2shHeader = 19;             //base58.h CBitcoinAddress::SCRIPT_ADDRESS_TEST
     public static final long testnetPacketMagic = 0xcee2caff;      //
-    public static final String testnetGenesisHash = "00000080ca06289e92c2a37d96b6c19f5135b6dfe7aaebc56938fdfe6f7c3716";
+    public static final String testnetGenesisHash = "000008fde8906a1398b97b05a80f2554f81275eaeb361af3f529200e6ddfa79e";
     static public long testnetGenesisBlockDifficultyTarget = (0x1e0ffff0L);         //main.cpp: LoadBlockIndex
-    static public long testnetGenesisBlockTime = 1435574202L;                       //main.cpp: LoadBlockIndex
-    static public long testnetGenesisBlockNonce = (187241);                         //main.cpp: LoadBlockIndex
+    static public long testnetGenesisBlockTime = 1435816626L;                       //main.cpp: LoadBlockIndex
+    static public long testnetGenesisBlockNonce = (443225);                         //main.cpp: LoadBlockIndex
 
 
 
@@ -180,7 +180,7 @@ public class CoinDefinition {
     public static BigInteger proofOfWorkLimit = Utils.decodeCompactBits(0x1e0fffffL);  //main.cpp bnProofOfWorkLimit (~uint256(0) >> 20); // digitalcoin: starting difficulty is 1 / 2^12
 
     static public String[] testnetDnsSeeds = new String[] {
-            "test-mobiseed.unpaybank.info",
+            "testnet-dnsseed.unpaybank.info",
 //            "testnet-seed.darkcoin.io",
 //            "testnet-seed.darkcoin.qa",
 //            "23.23.186.131"
@@ -190,11 +190,11 @@ public class CoinDefinition {
     public static final String TESTNET_SATOSHI_KEY = "04517d8a699cb43d3938d7b24faaff7cda448ca4ea267723ba614784de661949bf632d6304316b244646dea079735b9a6fc4af804efb4752075b9fe2245e14e412";
 
     /** The string returned by getId() for the main, production network where people trade things. */
-    public static final String ID_MAINNET = "org.mobicoin.production";
+    public static final String ID_MAINNET = "org.unpaybank.production";
     /** The string returned by getId() for the testnet. */
-    public static final String ID_TESTNET = "org.mobicoin.test";
+    public static final String ID_TESTNET = "org.unpaybank.test";
     /** Unit test network. */
-    public static final String ID_UNITTESTNET = "com.google.mobicoin.unittest";
+    public static final String ID_UNITTESTNET = "com.google.unpaybank.unittest";
 
     //checkpoints.cpp Checkpoints::mapCheckpoints
     public static void initCheckpoints(Map<Integer, Sha256Hash> checkpoints)
