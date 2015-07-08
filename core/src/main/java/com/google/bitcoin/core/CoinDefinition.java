@@ -63,7 +63,7 @@ public class CoinDefinition {
     public static final BigInteger MAX_MONEY = BigInteger.valueOf(90000000000L).multiply(Utils.COIN);                 //main.h:  MAX_MONEY
     //public static final String MAX_MONEY_STRING = "200000000";     //main.h:  MAX_MONEY
 
-    public static final BigInteger DEFAULT_MIN_TX_FEE = BigInteger.valueOf(100000);   // MIN_TX_FEE
+    public static final BigInteger DEFAULT_MIN_TX_FEE = BigInteger.valueOf(1);   // MIN_TX_FEE
     public static final BigInteger DUST_LIMIT = BigInteger.valueOf(1000); //main.h CTransaction::GetMinFee        0.01 coins
 
     public static final int PROTOCOL_VERSION = 70075;          //version.h PROTOCOL_VERSION
